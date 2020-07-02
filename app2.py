@@ -22,6 +22,7 @@ def main():
 	st.markdown(html_temp,unsafe_allow_html=True)
 	Path=st.text_input("Enter your Path here","Type...")
 	if os.path.isdir(Path):
+		st.success("You are into Directory:{}".format(Path))
 
 		def file_selector(folder_path=Path):
 			filenames=os.listdir(folder_path)
@@ -138,7 +139,8 @@ def main():
 		fig2 = px.line(df2, x="txn_month",y="txn_date",color='txn_year')
 		fig2.update_layout(title_text="Number of transaction over years")
 		st.write(fig2)
-
+	else:
+		st.warning("You Entered wrong Path")
 
 
 if __name__=='__main__':
